@@ -1,0 +1,5 @@
+let l  = new Stack()
+l.push(1)
+l.push(2)
+l.push(3)
+console.log(l)
