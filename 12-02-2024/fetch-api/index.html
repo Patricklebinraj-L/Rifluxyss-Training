@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+        <input type="text" placeholder=" enter url " name="name" id="url">
+     
+
+        <input type="submit" value="submit" name="submit" id="btn">
+
+
+
+
+<script>
+
+
+var btn = document.getElementById("btn")
+
+const download = async () => {
+
+    let fd = new FormData()
+    fd.append("name","patrick")
+    fd.append("text","hii")
+
+    let url = "https://www.google.com/"
+    await fetch(url,{
+        method:"GET"
+        })
+    .then(res => res.text())
+    .then(res => console.log(res))
+}
+
+btn.addEventListener("click",()=>{
+    download()
+})
+
+
+
+
+</script>
+
+
+    
+</body>
+</html>

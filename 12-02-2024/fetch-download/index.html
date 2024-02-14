@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+        <input type="text" placeholder=" enter url " name="name" id="url">
+     
+
+        <input type="submit" value="submit" name="submit" id="btn">
+
+
+
+
+<script>
+
+
+var btn = document.getElementById("btn")
+
+const download = async (filename) => {
+    // let url = document.getElementsByName("name")[0].value
+    let url = document.getElementById("url").value
+    const data = await fetch(url)
+    const blob = await data.blob()
+    const objectUrl = URL.createObjectURL(blob)
+
+    const link = document.createElement('a')
+
+    link.setAttribute('href', objectUrl)
+    link.setAttribute('download', filename)
+    link.style.display = 'none'
+
+    document.body.appendChild(link)
+  
+    link.click()
+  
+    document.body.removeChild(link)
+}
+
+btn.addEventListener("click",()=>{
+    download("sample.json")
+})
+
+
+
+
+</script>
+
+
+    
+</body>
+</html>
